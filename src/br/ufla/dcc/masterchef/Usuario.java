@@ -40,11 +40,12 @@ public class Usuario {
     }
 
     public void RemoverReceita(String nome) {
-        List receitas = GetReceitas();
-        for (int i = 0; i < receitas.size(); i++) {
-            Receita r = (Receita) receitas.get(i);
-            if (r.getTitulo().toString().contains(nome)) {
-                receitas.remove(i);
+        List receitaTemp;
+        receitaTemp = GetReceitas();
+        for (int i = 0; i < receitaTemp.size(); i++) {
+            Receita r = (Receita) receitaTemp.get(i);
+            if (r.getTitulo().contains(nome)) {
+                receitaTemp.remove(i);
             }
         }
     }
