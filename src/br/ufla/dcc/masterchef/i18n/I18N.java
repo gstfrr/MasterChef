@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 public class I18N {
 
     // caminho base para os arquivos de internacionalização
-    private static final String CAMINHO_ARQUIVOBASE_I18N = "br/ufla/dcc/ppoo/i18n/Strings";
+    private static final String CAMINHO_ARQUIVOBASE_I18N = "br/ufla/dcc/masterchef/i18n/Strings";
     // objeto utilizado para carregar os textos do sistema de acordo com a localidade
     private static ResourceBundle rb = ResourceBundle.getBundle(CAMINHO_ARQUIVOBASE_I18N, Locale.getDefault());
     // indica a localidade (idioma) Português - Brasil
@@ -369,34 +369,34 @@ public class I18N {
      * @return Texto do rótulo nome do filme.
      */
     public static String obterRotuloReceitaNome() {
-        return rb.getString("rotulo.Receita.nome");
+        return rb.getString("rotulo.receita.nome");
     }
 
     /**
-     * Retorna o texto do rótulo rendimento da receita.
+     * Retorna o texto do rótulo ano do filme.
      *
-     * @return Texto do rótulo rendimento da receita.
+     * @return Texto do rótulo ano do filme.
      */
-    public static String obterRotuloReceitaRendimento() {
-        return rb.getString("rotulo.receita.rendimento");
+    public static String obterRotuloFilmeRendimento() {
+        return rb.getString("rotulo.filme.rendimento");
     }
 
     /**
-     * Retorna o texto do rótulo modo de preparo da Receita.
+     * Retorna o texto do rótulo descrição do filme.
      *
-     * @return Texto do rótulo modo de preparo da Receita.
+     * @return Texto do rótulo descrição do filme.
      */
     public static String obterRotuloReceitaModoDePreparo() {
-        return rb.getString("rotulo.Receita.mododepreparo");
+        return rb.getString("rotulo.receita.mododepreparo");
     }
 
     /**
-     * Retorna o título da tela de Minhas Receitas.
+     * Retorna o título da tela de Meus Filmes.
      *
-     * @return Título da tela de Minhas Receitas.
+     * @return Título da tela de Meus Filmes.
      */
-    public static String obterTituloTelaMinhasReceitas() {
-        return rb.getString("tela.minhasreceitas.titulo");
+    public static String obterTituloTelaMi() {
+        return rb.getString("tela.meusfilmes.titulo");
     }
 
     /**

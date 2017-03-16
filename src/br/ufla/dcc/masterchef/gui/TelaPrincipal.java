@@ -238,9 +238,9 @@ public class TelaPrincipal {
      * 
      * @param args Argumentos passados na execução do programa.
      */
-//    public static void main(String[] args) {
-//        new TelaPrincipal().inicializar();
-//    }
+    public static void main(String[] args) {
+        new TelaPrincipal().inicializar();
+    }
 
     /**
      * Retorna uma referência para a janela
