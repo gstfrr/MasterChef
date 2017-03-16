@@ -368,54 +368,35 @@ public class I18N {
      *
      * @return Texto do rótulo nome do filme.
      */
-    public static String obterRotuloFilmeNome() {
-        return rb.getString("rotulo.filme.nome");
+    public static String obterRotuloReceitaNome() {
+        return rb.getString("rotulo.Receita.nome");
     }
 
     /**
-     * Retorna o texto do rótulo gênero do filme.
+     * Retorna o texto do rótulo rendimento da receita.
      *
-     * @return Texto do rótulo gênero do filme.
+     * @return Texto do rótulo rendimento da receita.
      */
-    public static String obterRotuloFilmeGenero() {
-        return rb.getString("rotulo.filme.genero");
+    public static String obterRotuloReceitaRendimento() {
+        return rb.getString("rotulo.receita.rendimento");
     }
 
     /**
-     * Retorna o texto do rótulo ano do filme.
+     * Retorna o texto do rótulo modo de preparo da Receita.
      *
-     * @return Texto do rótulo ano do filme.
+     * @return Texto do rótulo modo de preparo da Receita.
      */
-    public static String obterRotuloFilmeAno() {
-        return rb.getString("rotulo.filme.ano");
+    public static String obterRotuloReceitaModoDePreparo() {
+        return rb.getString("rotulo.Receita.mododepreparo");
     }
 
     /**
-     * Retorna o texto do rótulo da duração do filme.
+     * Retorna o título da tela de Minhas Receitas.
      *
-     * @return Texto do rótulo da duração do filme.
+     * @return Título da tela de Minhas Receitas.
      */
-    public static String obterRotuloFilmeDuracao() {
-
-        return rb.getString("rotulo.filme.duracao");
-    }
-
-    /**
-     * Retorna o texto do rótulo descrição do filme.
-     *
-     * @return Texto do rótulo descrição do filme.
-     */
-    public static String obterRotuloFilmeDescricao() {
-        return rb.getString("rotulo.filme.descricao");
-    }
-
-    /**
-     * Retorna o título da tela de Meus Filmes.
-     *
-     * @return Título da tela de Meus Filmes.
-     */
-    public static String obterTituloTelaMeusFilmes() {
-        return rb.getString("tela.meusfilmes.titulo");
+    public static String obterTituloTelaMinhasReceitas() {
+        return rb.getString("tela.minhasreceitas.titulo");
     }
 
     /**
