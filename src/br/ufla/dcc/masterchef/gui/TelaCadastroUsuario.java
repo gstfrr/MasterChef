@@ -88,25 +88,25 @@ public class TelaCadastroUsuario {
      * Adiciona um componente à tela.
      */
     private void adicionarComponentes() {
-        lbNome = new JLabel("I18N.obterRotuloUsuarioNome()");
+        lbNome = new JLabel("Nome");
         adicionarComponente(lbNome,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
                 0, 0, 1, 1);
 
-        lbLogin = new JLabel("I18N.obterRotuloUsuarioLogin()");
+        lbLogin = new JLabel("Login");
         adicionarComponente(lbLogin,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
                 1, 0, 1, 1);
 
-        lbSenha = new JLabel("I18N.obterRotuloUsuarioSenha()");
+        lbSenha = new JLabel("Senha");
         adicionarComponente(lbSenha,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
                 2, 0, 1, 1);
 
-        lbConfirmarSenha = new JLabel("I18N.obterRotuloUsuarioConfirmarSenha()");
+        lbConfirmarSenha = new JLabel("Confirmar Senha");
         adicionarComponente(lbConfirmarSenha,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
@@ -136,10 +136,10 @@ public class TelaCadastroUsuario {
                 GridBagConstraints.NONE,
                 3, 1, 1, 1);
 
-        btnSalvar = new JButton("I18N.obterBotaoSalvar()",
+        btnSalvar = new JButton("Salvar",
                 GerenciadorDeImagens.OK);
 
-        btnCancelar = new JButton("I18N.obterBotaoCancelar()",
+        btnCancelar = new JButton("Cancelar",
                 GerenciadorDeImagens.CANCELAR);
 
         JPanel painelBotoes = new JPanel();
@@ -191,11 +191,11 @@ public class TelaCadastroUsuario {
                 try {
                     if (!Arrays.equals(txtSenha.getPassword(),
                             txtConfirmarSenha.getPassword())) {
-                        throw new Exception("I18N.obterErroSenhasNaoConferem()");
+                        throw new Exception("Senhas não conferem");
                     }
 
                     gerenciadorUsuarios.cadastrarUsuario(carregarUsuario());
-                    Utilidades.msgInformacao("I18N.obterSucessoCadastroUsuario()");
+                    Utilidades.msgInformacao("Usuário cadastrado com sucesso!)");
                     limparTela();
                 } catch (Exception ex) {
                     Utilidades.msgErro(ex.getMessage());
@@ -211,7 +211,7 @@ public class TelaCadastroUsuario {
      */
     private void construirTela() {
         janela = new JDialog();
-        janela.setTitle("I18N.obterTituloTelaCadastrarUsuario()");
+        janela.setTitle("Cadastrar Usuario");
         layout = new GridBagLayout();
         gbc = new GridBagConstraints();
         janela.setLayout(layout);

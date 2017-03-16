@@ -44,7 +44,7 @@ public class TelaPrincipal {
 
     // Itens de menu específicos para usuários logados no sistema    
     private JMenuItem menuLogout;
-    private JMenuItem menuMeusFilmes;
+    private JMenuItem menuMinhasReceitas;
 
     /**
      * Construtor; incializa as demais telas e sessão de usuário.
@@ -126,11 +126,11 @@ public class TelaPrincipal {
      * Contrói o Menu Início, trata internacionalização
      */
     private void construirMenuInicio() {
-        menuInicio = new JMenu("I18N.obterMenuInicio()");
-        menuEntrar = new JMenuItem("I18N.obterMenuEntrar()", GerenciadorDeImagens.ENTRAR);
-        menuCadastrarUsuario = new JMenuItem("I18N.obterMenuCadastrarUsuario()", GerenciadorDeImagens.CADASTRAR_USUARIO);
-        menuLogout = new JMenuItem("I18N.obterMenuLogout()", GerenciadorDeImagens.LOGOUT);
-        menuMeusFilmes = new JMenuItem("I18N.obterMenuMeusFilmes()", GerenciadorDeImagens.MEUS_FILMES);
+        menuInicio = new JMenu("Inicio");
+        menuEntrar = new JMenuItem("Entrar", GerenciadorDeImagens.ENTRAR);
+        menuCadastrarUsuario = new JMenuItem("Cadastrar Usuario", GerenciadorDeImagens.CADASTRAR_USUARIO);
+        menuLogout = new JMenuItem("Logout", GerenciadorDeImagens.LOGOUT);
+        menuMinhasReceitas = new JMenuItem("Minhas Receitas", GerenciadorDeImagens.MEUS_FILMES);
 
         if (!sessaoUsuario.estahLogado()) {
             menuInicio.add(menuEntrar);
@@ -138,11 +138,11 @@ public class TelaPrincipal {
         } else {            
             // Aqui você poderá adicionar outros itens de menu, se necessário.
             
-            menuInicio.add(menuMeusFilmes);
+            menuInicio.add(menuMinhasReceitas);
             menuInicio.add(menuLogout);
         }
 
-        menuSair = new JMenuItem("I18N.obterMenuSair()", GerenciadorDeImagens.SAIR);
+        menuSair = new JMenuItem("Sair", GerenciadorDeImagens.SAIR);
         menuInicio.addSeparator();
         menuInicio.add(menuSair);
         menuPrincipal.add(menuInicio);
@@ -152,8 +152,8 @@ public class TelaPrincipal {
      * Constrói o menu Ajuda, trata internacionalização.
      */
     private void construirMenuAjuda() {
-        menuAjuda = new JMenu("I18N.obterMenuAjuda()");
-        menuSobre = new JMenuItem("Obter menu sobre", GerenciadorDeImagens.SOBRE);
+        menuAjuda = new JMenu("Ajuda");
+        menuSobre = new JMenuItem("Sobre", GerenciadorDeImagens.SOBRE);
         menuAjuda.add(menuSobre);
         menuPrincipal.add(menuAjuda);
     }

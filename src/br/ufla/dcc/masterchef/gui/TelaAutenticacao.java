@@ -83,13 +83,13 @@ public class TelaAutenticacao {
      * Adiciona os componentes da tela tratando layout e internacionalização
      */
     private void adicionarComponentes() {
-        lbLogin = new JLabel("I18N.obterRotuloUsuarioLogin()");
+        lbLogin = new JLabel("Login");
         adicionarComponente(lbLogin,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
                 0, 0, 1, 1);
 
-        lbSenha = new JLabel("I18N.obterRotuloUsuarioSenha()");
+        lbSenha = new JLabel("Senha");
         adicionarComponente(lbSenha,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
@@ -107,10 +107,10 @@ public class TelaAutenticacao {
                 GridBagConstraints.NONE,
                 1, 1, 1, 1);
 
-        btnEntrar = new JButton("I18N.obterBotaoEntrar()",
+        btnEntrar = new JButton("Entrar",
                 GerenciadorDeImagens.OK);
 
-        btnCancelar = new JButton("I18N.obterBotaoCancelar()",
+        btnCancelar = new JButton("Cancelar",
                 GerenciadorDeImagens.CANCELAR);
 
         JPanel painelBotoes = new JPanel();
@@ -162,7 +162,7 @@ public class TelaAutenticacao {
      */
     private void construirTela() {
         janela = new JDialog();
-        janela.setTitle("I18N.obterTituloTelaAutenticacao()");
+        janela.setTitle("Autenticação");
         layout = new GridBagLayout();
         gbc = new GridBagConstraints();
         janela.setLayout(layout);
