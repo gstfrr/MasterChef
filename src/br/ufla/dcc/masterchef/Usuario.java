@@ -1,43 +1,75 @@
 package br.ufla.dcc.masterchef;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Usuario {
 
-    private String Nome;
-    private String Senha;
     private String Login;
-    private ArrayList<Receita> receitas;
+    private String Senha;
 
-    public Usuario(String Nome, String Senha, String Login) {
-        this.Nome = Nome;
-        this.Senha = Senha;
+    private ArrayList<Receita> receitas = new ArrayList<Receita>();
+
+    public Usuario(String Login, String Senha) {
         this.Login = Login;
+        this.Senha = Senha;
     }
 
-    public void CadastrarReceita(Receita r) {
+    public void CadastrarReceita() {
+        Ingrediente i1 = new Ingrediente("Macarrão instantâneo", "", "Pacote", 1.10);
+        Ingrediente i2 = new Ingrediente("Muçarela", "", "gramas", 0.075);
+        Ingrediente i3 = new Ingrediente("Presunto", "", "gramas", 0.016);
+        Ingrediente i4 = new Ingrediente("Ovo", "", "unidade", 0.1);
+        Ingrediente i5 = new Ingrediente("Polvilho", "", "grama", 0.003);
+        Ingrediente i6 = new Ingrediente("Leite", "", "litro", 5.8);
+
+        Receita r = new Receita("Miojo gourmet", 1);
+        r.setModoPreparo("Cozinhe o macarrão por 3 minutos. Escorra-o, tempere com o tempero\npronto e adicione presunto e muçarela cortados em cubos.");
+        r.adicionarItem(new ItemDaReceita(i1, 1));
+        r.adicionarItem(new ItemDaReceita(i2, 50));
+        r.adicionarItem(new ItemDaReceita(i3, 50));
         receitas.add(r);
+
+        Receita r1 = new Receita("Pão-de-queijo POO", 30);
+        r1.setModoPreparo("Misture tudo e ponha para assar em forno pré-aquecido a 120 graus.");
+        r1.adicionarItem(new ItemDaReceita(i2, 800));
+        r1.adicionarItem(new ItemDaReceita(i4, 3));
+        r1.adicionarItem(new ItemDaReceita(i5, 500));
+        r1.adicionarItem(new ItemDaReceita(i6, 0.2));
+        receitas.add(r1);
     }
 
-    public void RemoverReceita() {
-
+    public void RemoverReceita(String nome) {
+        List receitas = GetReceitas();
+        for (int i = 0; i < receitas.size(); i++) {
+            Receita r = (Receita) receitas.get(i);
+            if (r.getTitulo().toString().contains(nome)) {
+                receitas.remove(i);
+            }
+        }
     }
 
     public void EditarReceita() {
 
     }
 
-    public void BuscarReceita() {
-
+    public Receita BuscarReceita(String nome) {
+        List receitas = GetReceitas();
+        for (int i = 0; i < receitas.size(); i++) {
+            Receita r = (Receita) receitas.get(i);
+            if (r.getTitulo().toString().contains(nome)) {
+                return r;
+            }
+        }
+        return null; //tratar exceção
     }
 
-    public List<Receita> ListarReceitas() {
-        return Collections.unmodifiableList(receitas);
+    public List<Receita> GetReceitas() {
+        //return Collections.unmodifiableList(receitas);
+        return receitas;
     }
 
-    public void ExibirReceita(Receita receita) {
+    public void ImprimirReceita(Receita receita) {
         System.out.printf("Receita: %s\nIngrediente(s):\n",
                 receita.getTitulo());
         for (ItemDaReceita idr : receita.getItens()) {
@@ -51,5 +83,4 @@ public class Usuario {
         System.out.printf("Valor total da receita: R$ %.2f\nValor por porção: R$ %.2f\n",
                 receita.obterValorTotal(), receita.obterValorPorPorcao());
     }
-
 }
