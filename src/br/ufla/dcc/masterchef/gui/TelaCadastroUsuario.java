@@ -1,6 +1,5 @@
 package br.ufla.dcc.masterchef.gui;
 
-import br.ufla.dcc.masterchef.i18n.I18N;
 import br.ufla.dcc.masterchef.imagens.GerenciadorDeImagens;
 import br.ufla.dcc.masterchef.modelo.Usuario;
 import br.ufla.dcc.masterchef.servicos.GerenciadorUsuarios;
@@ -89,25 +88,25 @@ public class TelaCadastroUsuario {
      * Adiciona um componente à tela.
      */
     private void adicionarComponentes() {
-        lbNome = new JLabel(I18N.obterRotuloUsuarioNome());
+        lbNome = new JLabel("I18N.obterRotuloUsuarioNome()");
         adicionarComponente(lbNome,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
                 0, 0, 1, 1);
 
-        lbLogin = new JLabel(I18N.obterRotuloUsuarioLogin());
+        lbLogin = new JLabel("I18N.obterRotuloUsuarioLogin()");
         adicionarComponente(lbLogin,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
                 1, 0, 1, 1);
 
-        lbSenha = new JLabel(I18N.obterRotuloUsuarioSenha());
+        lbSenha = new JLabel("I18N.obterRotuloUsuarioSenha()");
         adicionarComponente(lbSenha,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
                 2, 0, 1, 1);
 
-        lbConfirmarSenha = new JLabel(I18N.obterRotuloUsuarioConfirmarSenha());
+        lbConfirmarSenha = new JLabel("I18N.obterRotuloUsuarioConfirmarSenha()");
         adicionarComponente(lbConfirmarSenha,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
@@ -137,10 +136,10 @@ public class TelaCadastroUsuario {
                 GridBagConstraints.NONE,
                 3, 1, 1, 1);
 
-        btnSalvar = new JButton(I18N.obterBotaoSalvar(),
+        btnSalvar = new JButton("I18N.obterBotaoSalvar()",
                 GerenciadorDeImagens.OK);
 
-        btnCancelar = new JButton(I18N.obterBotaoCancelar(),
+        btnCancelar = new JButton("I18N.obterBotaoCancelar()",
                 GerenciadorDeImagens.CANCELAR);
 
         JPanel painelBotoes = new JPanel();
@@ -192,11 +191,11 @@ public class TelaCadastroUsuario {
                 try {
                     if (!Arrays.equals(txtSenha.getPassword(),
                             txtConfirmarSenha.getPassword())) {
-                        throw new Exception(I18N.obterErroSenhasNaoConferem());
+                        throw new Exception("I18N.obterErroSenhasNaoConferem()");
                     }
 
                     gerenciadorUsuarios.cadastrarUsuario(carregarUsuario());
-                    Utilidades.msgInformacao(I18N.obterSucessoCadastroUsuario());
+                    Utilidades.msgInformacao("I18N.obterSucessoCadastroUsuario()");
                     limparTela();
                 } catch (Exception ex) {
                     Utilidades.msgErro(ex.getMessage());
@@ -212,7 +211,7 @@ public class TelaCadastroUsuario {
      */
     private void construirTela() {
         janela = new JDialog();
-        janela.setTitle(I18N.obterTituloTelaCadastrarUsuario());
+        janela.setTitle("I18N.obterTituloTelaCadastrarUsuario()");
         layout = new GridBagLayout();
         gbc = new GridBagConstraints();
         janela.setLayout(layout);

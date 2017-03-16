@@ -1,6 +1,5 @@
 package br.ufla.dcc.masterchef.gui;
 
-import br.ufla.dcc.masterchef.i18n.I18N;
 import br.ufla.dcc.masterchef.imagens.GerenciadorDeImagens;
 import br.ufla.dcc.masterchef.util.Utilidades;
 import java.awt.Component;
@@ -73,7 +72,7 @@ public class TelaMinhasReceitas {
      */
     private void construirTabela() {
         Object[] titulosColunas = {
-            I18N.obterRotuloReceitaNome()
+            "I18N.obterRotuloReceitaNome()"
         };
 
         // Dados "fake"
@@ -191,7 +190,7 @@ public class TelaMinhasReceitas {
                 GridBagConstraints.NONE,
                 0, 0, 4, 1);
 
-        lbTitulos = new JLabel(I18N.obterRotuloReceitaNome());
+        lbTitulos = new JLabel("I18N.obterRotuloReceitaNome()");
         adicionarComponente(lbTitulos,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
@@ -203,7 +202,7 @@ public class TelaMinhasReceitas {
                 GridBagConstraints.HORIZONTAL,
                 1, 1, 3, 1);
 
-        lbRendimento = new JLabel(I18N.obterRotuloReceitaRendimento());
+        lbRendimento = new JLabel("I18N.obterRotuloReceitaRendimento()");
         adicionarComponente(lbRendimento,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
@@ -215,7 +214,7 @@ public class TelaMinhasReceitas {
                 GridBagConstraints.HORIZONTAL,
                 3, 1, 1, 1);
 
-        lbModoDePreparo = new JLabel(I18N.obterRotuloReceitaModoDePreparo());
+        lbModoDePreparo = new JLabel("I18N.obterRotuloReceitaModoDePreparo()");
         adicionarComponente(lbModoDePreparo,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
@@ -229,19 +228,19 @@ public class TelaMinhasReceitas {
                 GridBagConstraints.HORIZONTAL,
                 4, 1, 3, 1);
 
-        btnNovaReceita = new JButton(I18N.obterBotaoNovo(),
+        btnNovaReceita = new JButton("I18N.obterBotaoNovo()",
                 GerenciadorDeImagens.NOVO);
 
-        btnEditarReceita = new JButton(I18N.obterBotaoEditar(),
+        btnEditarReceita = new JButton("I18N.obterBotaoEditar()",
                 GerenciadorDeImagens.EDITAR);
 
-        btnSalvarReceita = new JButton(I18N.obterBotaoSalvar(),
+        btnSalvarReceita = new JButton("I18N.obterBotaoSalvar()",
                 GerenciadorDeImagens.OK);
 
-        btnDeletarReceita = new JButton(I18N.obterBotaoDeletar(),
+        btnDeletarReceita = new JButton("I18N.obterBotaoDeletar()",
                 GerenciadorDeImagens.DELETAR);
 
-        btnCancelar = new JButton(I18N.obterBotaoCancelar(),
+        btnCancelar = new JButton("I18N.obterBotaoCancelar()",
                 GerenciadorDeImagens.CANCELAR);
 
         prepararComponentesEstadoInicial();
@@ -313,7 +312,7 @@ public class TelaMinhasReceitas {
         btnDeletarReceita.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Utilidades.msgConfirmacao(I18N.obterConfirmacaoDeletar())) {
+                if (Utilidades.msgConfirmacao("I18N.obterConfirmacaoDeletar()")) {
                     // Remover filme!
                 }
             }
@@ -325,7 +324,7 @@ public class TelaMinhasReceitas {
      */
     private void construirTela() {
         janela = new JDialog();
-        janela.setTitle(I18N.obterTituloTelaMinhasReceitas());
+        janela.setTitle("I18N.obterTituloTelaMinhasReceitas()");
         layout = new GridBagLayout();
         gbc = new GridBagConstraints();
         janela.setLayout(layout);

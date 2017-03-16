@@ -1,6 +1,5 @@
 package br.ufla.dcc.masterchef.gui;
 
-import br.ufla.dcc.masterchef.i18n.I18N;
 import br.ufla.dcc.masterchef.imagens.GerenciadorDeImagens;
 import br.ufla.dcc.masterchef.seguranca.SessaoUsuario;
 import br.ufla.dcc.masterchef.util.Utilidades;
@@ -35,14 +34,11 @@ public class TelaPrincipal {
     // Menus principais da tela    
     private JMenuBar menuPrincipal;
     private JMenu menuInicio;
-    private JMenu menuIdioma;
     private JMenu menuAjuda;
 
     // Submenus da tela
     private JMenuItem menuEntrar;
     private JMenuItem menuCadastrarUsuario;
-    private JMenuItem menuIdiomaPortugues;
-    private JMenuItem menuIdiomaIngles;
     private JMenuItem menuSair;
     private JMenuItem menuSobre;
 
@@ -81,25 +77,9 @@ public class TelaPrincipal {
         menuSair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Utilidades.msgConfirmacao(I18N.obterConfirmacaoSaida())) {
+                if (Utilidades.msgConfirmacao("I18N.obterConfirmacaoSaida()")) {
                     System.exit(0);
                 }
-            }
-        });
-
-        menuIdiomaPortugues.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                I18N.alterarLocalidade(I18N.PT_BR);
-                inicializar();
-            }
-        });
-
-        menuIdiomaIngles.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                I18N.alterarLocalidade(I18N.EN_US);
-                inicializar();
             }
         });
 
@@ -128,14 +108,14 @@ public class TelaPrincipal {
         menuSobre.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Utilidades.msgInformacao(I18N.obterMensagemSobre());
+                Utilidades.msgInformacao("I18N.obterMensagemSobre()");
             }
         });
 
         janela.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                if (Utilidades.msgConfirmacao(I18N.obterConfirmacaoSaida())) {
+                if (Utilidades.msgConfirmacao("I18N.obterConfirmacaoSaida()")) {
                     System.exit(0);
                 }
             }
@@ -146,12 +126,11 @@ public class TelaPrincipal {
      * Contrói o Menu Início, trata internacionalização
      */
     private void construirMenuInicio() {
-        menuInicio = new JMenu(I18N.obterMenuInicio());
-        menuInicio.setMnemonic(I18N.obterMnemonicoMenuInicio());
-        menuEntrar = new JMenuItem(I18N.obterMenuEntrar(), GerenciadorDeImagens.ENTRAR);
-        menuCadastrarUsuario = new JMenuItem(I18N.obterMenuCadastrarUsuario(), GerenciadorDeImagens.CADASTRAR_USUARIO);
-        menuLogout = new JMenuItem(I18N.obterMenuLogout(), GerenciadorDeImagens.LOGOUT);
-        menuMeusFilmes = new JMenuItem(I18N.obterMenuMeusFilmes(), GerenciadorDeImagens.MEUS_FILMES);
+        menuInicio = new JMenu("I18N.obterMenuInicio()");
+        menuEntrar = new JMenuItem("I18N.obterMenuEntrar()", GerenciadorDeImagens.ENTRAR);
+        menuCadastrarUsuario = new JMenuItem("I18N.obterMenuCadastrarUsuario()", GerenciadorDeImagens.CADASTRAR_USUARIO);
+        menuLogout = new JMenuItem("I18N.obterMenuLogout()", GerenciadorDeImagens.LOGOUT);
+        menuMeusFilmes = new JMenuItem("I18N.obterMenuMeusFilmes()", GerenciadorDeImagens.MEUS_FILMES);
 
         if (!sessaoUsuario.estahLogado()) {
             menuInicio.add(menuEntrar);
@@ -163,32 +142,18 @@ public class TelaPrincipal {
             menuInicio.add(menuLogout);
         }
 
-        menuSair = new JMenuItem(I18N.obterMenuSair(), GerenciadorDeImagens.SAIR);
+        menuSair = new JMenuItem("I18N.obterMenuSair()", GerenciadorDeImagens.SAIR);
         menuInicio.addSeparator();
         menuInicio.add(menuSair);
         menuPrincipal.add(menuInicio);
     }
 
     /**
-     * Constrói o menu Idioma, trata internacionalização.
-     */
-    private void construirMenuIdioma() {
-        menuIdioma = new JMenu(I18N.obterMenuIdioma());
-        menuIdioma.setMnemonic(I18N.obterMnemonicoMenuIdioma());
-        menuIdiomaPortugues = new JMenuItem(I18N.obterMenuIdiomaPortugues(), GerenciadorDeImagens.BANDEIRA_BR);
-        menuIdiomaIngles = new JMenuItem(I18N.obterMenuIdiomaIngles(), GerenciadorDeImagens.BANDEIRA_GB);
-        menuIdioma.add(menuIdiomaPortugues);
-        menuIdioma.add(menuIdiomaIngles);
-        menuPrincipal.add(menuIdioma);
-    }
-
-    /**
      * Constrói o menu Ajuda, trata internacionalização.
      */
     private void construirMenuAjuda() {
-        menuAjuda = new JMenu(I18N.obterMenuAjuda());
-        menuAjuda.setMnemonic(I18N.obterMnemonicoMenuAjuda());
-        menuSobre = new JMenuItem(I18N.obterMenuSobre(), GerenciadorDeImagens.SOBRE);
+        menuAjuda = new JMenu("I18N.obterMenuAjuda()");
+        menuSobre = new JMenuItem("Obter menu sobre", GerenciadorDeImagens.SOBRE);
         menuAjuda.add(menuSobre);
         menuPrincipal.add(menuAjuda);
     }
@@ -206,7 +171,6 @@ public class TelaPrincipal {
              // usuário estiver logado no sistema.
          }        
         
-        construirMenuIdioma();
         construirMenuAjuda();
         janela.setJMenuBar(menuPrincipal);
     }
@@ -215,7 +179,7 @@ public class TelaPrincipal {
      * Constrói a tela.
      */
     private void construirTela() {
-        janela = new JFrame(I18N.obterTituloTelaPrincipal());
+        janela = new JFrame("Minhas Receitas");
         janela.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         construirMenuUsuario();
     }

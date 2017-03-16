@@ -1,6 +1,5 @@
 package br.ufla.dcc.masterchef.gui;
 
-import br.ufla.dcc.masterchef.i18n.I18N;
 import br.ufla.dcc.masterchef.imagens.GerenciadorDeImagens;
 import br.ufla.dcc.masterchef.modelo.Usuario;
 import br.ufla.dcc.masterchef.servicos.GerenciadorUsuarios;
@@ -84,13 +83,13 @@ public class TelaAutenticacao {
      * Adiciona os componentes da tela tratando layout e internacionalização
      */
     private void adicionarComponentes() {
-        lbLogin = new JLabel(I18N.obterRotuloUsuarioLogin());
+        lbLogin = new JLabel("I18N.obterRotuloUsuarioLogin()");
         adicionarComponente(lbLogin,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
                 0, 0, 1, 1);
 
-        lbSenha = new JLabel(I18N.obterRotuloUsuarioSenha());
+        lbSenha = new JLabel("I18N.obterRotuloUsuarioSenha()");
         adicionarComponente(lbSenha,
                 GridBagConstraints.LINE_END,
                 GridBagConstraints.NONE,
@@ -108,10 +107,10 @@ public class TelaAutenticacao {
                 GridBagConstraints.NONE,
                 1, 1, 1, 1);
 
-        btnEntrar = new JButton(I18N.obterBotaoEntrar(),
+        btnEntrar = new JButton("I18N.obterBotaoEntrar()",
                 GerenciadorDeImagens.OK);
 
-        btnCancelar = new JButton(I18N.obterBotaoCancelar(),
+        btnCancelar = new JButton("I18N.obterBotaoCancelar()",
                 GerenciadorDeImagens.CANCELAR);
 
         JPanel painelBotoes = new JPanel();
@@ -163,7 +162,7 @@ public class TelaAutenticacao {
      */
     private void construirTela() {
         janela = new JDialog();
-        janela.setTitle(I18N.obterTituloTelaAutenticacao());
+        janela.setTitle("I18N.obterTituloTelaAutenticacao()");
         layout = new GridBagLayout();
         gbc = new GridBagConstraints();
         janela.setLayout(layout);

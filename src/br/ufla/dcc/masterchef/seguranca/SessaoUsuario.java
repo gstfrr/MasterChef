@@ -1,6 +1,5 @@
 package br.ufla.dcc.masterchef.seguranca;
 
-import br.ufla.dcc.masterchef.i18n.I18N;
 import br.ufla.dcc.masterchef.modelo.Usuario;
 import java.util.Arrays;
 
@@ -59,7 +58,7 @@ public class SessaoUsuario {
      */
     public void alterarUsuario(Usuario usuario, char[] senha) throws Exception {        
         if (usuario == null || !Arrays.equals(usuario.obterSenha(), senha)) {
-            throw new Exception(I18N.obterErroAutenticacao());
+            throw new Exception("Erro de autenticação");
         }
         else {
             this.usuario = usuario;

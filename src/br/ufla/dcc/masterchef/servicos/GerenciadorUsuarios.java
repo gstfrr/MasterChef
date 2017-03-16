@@ -2,7 +2,6 @@ package br.ufla.dcc.masterchef.servicos;
 
 import br.ufla.dcc.masterchef.dao.UsuarioDAO;
 import br.ufla.dcc.masterchef.dao.lista.UsuarioDAOLista;
-import br.ufla.dcc.masterchef.i18n.I18N;
 import br.ufla.dcc.masterchef.modelo.Usuario;
 import br.ufla.dcc.masterchef.seguranca.SessaoUsuario;
 
@@ -53,7 +52,7 @@ public class GerenciadorUsuarios {
     public void cadastrarUsuario(Usuario usuario) throws Exception {
         Usuario ret = repositorioUsuario.obterUsuarioPeloLogin(usuario.obterLogin());
         if (ret != null) {
-            throw new Exception(I18N.obterErroUsuarioJaCadastrado());
+            throw new Exception("Usuário já cadastrado");
         }
         repositorioUsuario.adicionarUsuario(usuario);
     }
