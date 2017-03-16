@@ -5,12 +5,14 @@ import java.util.List;
 
 public class Usuario {
 
+    private String Nome;
     private String Login;
     private String Senha;
 
     private ArrayList<Receita> receitas = new ArrayList<Receita>();
 
-    public Usuario(String Login, String Senha) {
+    public Usuario(String Nome, String Login, String Senha) {
+        this.Nome = Nome;
         this.Login = Login;
         this.Senha = Senha;
     }
