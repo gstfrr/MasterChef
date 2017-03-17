@@ -18,16 +18,11 @@ public class Usuario {
     }
 
     public void CadastrarReceita() {
-        Ingrediente i1 = new Ingrediente("Macarrão instantâneo", "", "Pacote", 1.10);
-        Ingrediente i2 = new Ingrediente("Muçarela", "", "gramas", 0.075);
-        Ingrediente i3 = new Ingrediente("Presunto", "", "gramas", 0.016);
-        Ingrediente i4 = new Ingrediente("Ovo", "", "unidade", 0.1);
-        Ingrediente i5 = new Ingrediente("Polvilho", "", "grama", 0.003);
-        Ingrediente i6 = new Ingrediente("Leite", "", "litro", 5.8);
+        
 
         Receita r = new Receita("Miojo gourmet", 1);
         r.setModoPreparo("Cozinhe o macarrão por 3 minutos. Escorra-o, tempere com o tempero\npronto e adicione presunto e muçarela cortados em cubos.");
-        r.adicionarItem(new ItemDaReceita(i1, 1));
+        r.adicionarItem(new ItemDaReceita(Principal.getIngredientes().get("miojo"), 1));
         r.adicionarItem(new ItemDaReceita(i2, 50));
         r.adicionarItem(new ItemDaReceita(i3, 50));
         receitas.add(r);
