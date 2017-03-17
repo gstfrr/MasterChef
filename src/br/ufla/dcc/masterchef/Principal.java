@@ -5,7 +5,6 @@
  */
 package br.ufla.dcc.masterchef;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,17 +15,16 @@ import java.util.List;
 public class Principal {
 
     private static HashMap<String, Ingrediente> ingredientes;
-    
 
     public static void main(String[] args) {
 
         ingredientes = new HashMap<>();
 
         getIngredientes().put("miojo",new Ingrediente("Macarrão instantâneo", "", "Pacote", 1.10));
-        getIngredientes().put("queijo", new Ingrediente("Muçarela", "", "gramas", 0.075));
+        getIngredientes().put("muçarela", new Ingrediente("Muçarela", "", "gramas", 0.075));
         getIngredientes().put("presunto", new Ingrediente("Presunto", "", "gramas", 0.016));
-        getIngredientes().put("egg", new Ingrediente("Ovo", "", "unidade", 0.1));
-        getIngredientes().put("farinha", new Ingrediente("Polvilho", "", "grama", 0.003));
+        getIngredientes().put("ovo", new Ingrediente("Ovo", "", "unidade", 0.1));
+        getIngredientes().put("polvilho", new Ingrediente("Polvilho", "", "grama", 0.003));
         getIngredientes().put("leite", new Ingrediente("Leite", "", "litro", 5.8));
 
         Usuario u1 = new Usuario("Augusto Ferreira", "augusto", "1234");

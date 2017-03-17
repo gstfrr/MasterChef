@@ -23,7 +23,7 @@ public class Receita {
     public Receita(String titulo, double rendimento) {
         this.titulo = titulo;
         this.rendimento = rendimento;
-        this.itens = new ArrayList<ItemDaReceita>();
+        this.itens = new ArrayList<>();
     }
 
     public double obterValorTotal() {

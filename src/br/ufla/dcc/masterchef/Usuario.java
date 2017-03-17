@@ -9,7 +9,7 @@ public class Usuario {
     private String Login;
     private String Senha;
 
-    private ArrayList<Receita> receitas = new ArrayList<Receita>();
+    private ArrayList<Receita> receitas = new ArrayList<>();
 
     public Usuario(String Nome, String Login, String Senha) {
         this.Nome = Nome;
@@ -23,16 +23,16 @@ public class Usuario {
         Receita r = new Receita("Miojo gourmet", 1);
         r.setModoPreparo("Cozinhe o macarrão por 3 minutos. Escorra-o, tempere com o tempero\npronto e adicione presunto e muçarela cortados em cubos.");
         r.adicionarItem(new ItemDaReceita(Principal.getIngredientes().get("miojo"), 1));
-        r.adicionarItem(new ItemDaReceita(i2, 50));
-        r.adicionarItem(new ItemDaReceita(i3, 50));
+        r.adicionarItem(new ItemDaReceita(Principal.getIngredientes().get("muçarela"), 50));
+        r.adicionarItem(new ItemDaReceita(Principal.getIngredientes().get("presunto"), 50));
         receitas.add(r);
 
         Receita r1 = new Receita("Pão-de-queijo POO", 30);
         r1.setModoPreparo("Misture tudo e ponha para assar em forno pré-aquecido a 120 graus.");
-        r1.adicionarItem(new ItemDaReceita(i2, 800));
-        r1.adicionarItem(new ItemDaReceita(i4, 3));
-        r1.adicionarItem(new ItemDaReceita(i5, 500));
-        r1.adicionarItem(new ItemDaReceita(i6, 0.2));
+        r1.adicionarItem(new ItemDaReceita(Principal.getIngredientes().get("muçarela"), 800));
+        r1.adicionarItem(new ItemDaReceita(Principal.getIngredientes().get("ovo"), 3));
+        r1.adicionarItem(new ItemDaReceita(Principal.getIngredientes().get("polvilho"), 500));
+        r1.adicionarItem(new ItemDaReceita(Principal.getIngredientes().get("leite"), 0.2));
         receitas.add(r1);
     }
 
@@ -52,10 +52,10 @@ public class Usuario {
     }
 
     public Receita BuscarReceita(String nome) {
-        List receitas = GetReceitas();
-        for (int i = 0; i < receitas.size(); i++) {
-            Receita r = (Receita) receitas.get(i);
-            if (r.getTitulo().toString().contains(nome)) {
+        List tempReceitas = GetReceitas();
+        for (int i = 0; i < tempReceitas.size(); i++) {
+            Receita r = (Receita) tempReceitas.get(i);
+            if (r.getTitulo().contains(nome)) {
                 return r;
             }
         }
@@ -70,12 +70,12 @@ public class Usuario {
     public void ImprimirReceita(Receita receita) {
         System.out.printf("Receita: %s\nIngrediente(s):\n",
                 receita.getTitulo());
-        for (ItemDaReceita idr : receita.getItens()) {
+        receita.getItens().stream().forEach((idr) -> {
             System.out.printf("\t%.2f %s de %s (R$ %.2f)\n", idr.getQuantidade(),
                     idr.getIngrediente().getUnidade(),
                     idr.getIngrediente().getNome(),
                     idr.obterCustoItem());
-        }
+        });
         System.out.printf("Modo de preparo: %s\nRendimento: %.2f porção(ões)\n",
                 receita.getModoPreparo(), receita.getRendimento());
         System.out.printf("Valor total da receita: R$ %.2f\nValor por porção: R$ %.2f\n",
