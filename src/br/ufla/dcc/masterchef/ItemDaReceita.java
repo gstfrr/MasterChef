@@ -31,4 +31,7 @@ public class ItemDaReceita {
         return quantidade;
     }
 
+    public void setQuantidade(double quantidade) {
+        this.quantidade = quantidade;
+    }
 }

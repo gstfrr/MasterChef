@@ -39,23 +39,6 @@ public class Principal {
             System.out.println(r.getTitulo());
         }
 
-        //u1.BuscarReceita("POO");
-        //u1.ImprimirReceita(u1.BuscarReceita("POO"));
-        u1.RemoverReceita("POO");
-
-        System.out.println("\n" + receitas.size() + " receitas:");
-        for (int i = 0; i < receitas.size(); i++) {
-            Receita r = (Receita) receitas.get(i);
-            System.out.println(r.getTitulo());
-        }
-
-        u1.RemoverReceita("Miojo");
-
-        System.out.println("\n" + receitas.size() + " receitas:");
-        for (int i = 0; i < receitas.size(); i++) {
-            Receita r = (Receita) receitas.get(i);
-            System.out.println(r.getTitulo());
-        }
 
     }
 
@@ -65,5 +48,4 @@ public class Principal {
     public static HashMap<String, Ingrediente> getIngredientes() {
         return ingredientes;
     }
-
 }
